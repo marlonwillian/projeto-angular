@@ -1,0 +1,81 @@
+.novoAluno {
+  background-color: white;
+  width: 1425px;
+  margin-top: 25px;
+  padding: 15px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.novoAluno h1 {
+  position: absolute;
+  font-size: 17px;
+  top: 5px;
+  background-color: white;
+  padding: 5px;
+}
+
+.novoAluno form {
+  display: flex;
+  flex-direction: column;
+}
+
+.novoAluno form > div {
+  margin-block: 5px;
+}
+
+.inputsCima {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.inputsCima input {
+  width: 800px;
+  border: none;
+  background-color: #bcb3b3;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+::-webkit-input-placeholder {
+  color: black;
+}
+
+.inputsBaixo {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.inputsBaixo input {
+  width: 350px;
+  border: none;
+  background-color: #bcb3b3;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: right;
+  gap: 10px;
+}
+
+.buttons > button {
+  border: none;
+  padding: 10px;
+}
+
+.buttons > button > i{
+  margin-right: 5px;
+}
+
+.botaoCancelar {
+  background-color: #ea9999;
+  font-weight: 500;
+}
+
+.botaoAdicionar {
+  background-color: #93c47d;
+  font-weight: 500;
+}
