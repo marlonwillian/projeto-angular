@@ -10,6 +10,7 @@
 .novoAluno h1 {
   position: absolute;
   font-size: 17px;
+  font-weight: 500;
   top: 5px;
   background-color: white;
   padding: 5px;
@@ -63,7 +64,10 @@
 
 .buttons > button {
   border: none;
+  border-radius: 5px;
   padding: 10px;
+  cursor: pointer;
+  box-shadow: 2px 3px 5px black;
 }
 
 .buttons > button > i{
@@ -73,9 +77,19 @@
 .botaoCancelar {
   background-color: #ea9999;
   font-weight: 500;
+  transition: 0.5s;
+}
+
+.botaoCancelar:hover {
+  background-color: #de7474;
 }
 
 .botaoAdicionar {
   background-color: #93c47d;
   font-weight: 500;
+  transition: 0.5s;
+}
+
+.botaoAdicionar:hover {
+  background-color: #64ca35;
 }

@@ -1,0 +1,91 @@
+.listaDeAlunos {
+  margin-top: 30px;
+}
+
+.listaDeAlunos h1 {
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.alunosDiv {
+  width: 1445px;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+ul {
+  display: flex;
+}
+
+.primeiraColuna > li {
+  list-style-type: none;
+  padding: 5px;
+  padding-right: 15px;
+  background-color: #bcb3b3;
+}
+
+.email, .celular, .telefone, .cpf, .dataDeNascimento, .acoes {
+  border-left: 2px solid #000000b3;
+}
+
+.nome {
+  width: 250px;
+  border-top-left-radius: 5px;
+}
+
+.email {
+  width: 300px;
+}
+
+.celular, .telefone {
+  width: 165px;
+}
+
+.cpf {
+  width: 170px;
+}
+
+.dataDeNascimento {
+  width: 190px;
+}
+
+.acoes {
+  border-top-right-radius: 5px;
+  width: 65px;
+}
+
+.outrasColunas > li {
+  list-style-type: none;
+  padding: 5px;
+  padding-right: 15px;
+  color: black;
+}
+
+.emailAluno, .celularAluno, .telefoneAluno, .cpfAluno, .dataDeNascimentoAluno, .acoesAluno {
+  border-left: 2px solid #000000b3;
+}
+
+.nomeAluno {
+  width: 250px;
+}
+
+.emailAluno {
+  width: 300px;
+}
+
+.celularAluno, .telefoneAluno {
+  width: 165px;
+}
+
+.cpfAluno {
+  width: 170px;
+}
+
+.dataDeNascimentoAluno {
+  width: 190px;
+}
+
+.acoesAluno {
+  width: 65px;
+}
