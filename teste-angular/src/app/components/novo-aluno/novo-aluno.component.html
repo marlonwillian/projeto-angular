@@ -1,16 +1,16 @@
 <section class="novoAluno">
   <h1>Novo Aluno</h1>
-  <form action="">
+  <form [formGroup]="form" (ngSubmit)="novoAluno()" >
     <div class="inputsCima">
-      <input type="text" name="" placeholder="Nome completo" required>
-      <input type="email" name="" placeholder="E-mail" required>
+      <input type="text" formControlName="name" placeholder="Nome completo" required ngModel>
+      <input type="email" formControlName="email" placeholder="E-mail" required ngModel>
     </div>
 
     <div class="inputsBaixo">
-      <input type="tel" name="" placeholder="Telefone">
-      <input type="tel" name="" placeholder="Celular">
-      <input type="number" name="" placeholder="CPF">
-      <input type="date" name="">
+      <input type="tel" formControlName="telefone" placeholder="Telefone" ngModel>
+      <input type="tel" formControlName="celular" placeholder="Celular" ngModel>
+      <input type="number" formControlName="cpf" placeholder="CPF" ngModel>
+      <input type="date" formControlName="date" ngModel>
     </div>
 
     <div class="buttons">

@@ -6,10 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lista-de-alunos.component.css']
 })
 export class ListaDeAlunosComponent implements OnInit {
-
+  qtdChaves: number = localStorage.length
+  aluno: any;
+  
   constructor() { }
-
+  
   ngOnInit(): void {
   }
-
+  
+  retornaAlunos() {
+    const ultimoAluno = localStorage.getItem(this.qtdChaves.toString())
+    if (ultimoAluno) {
+      this.aluno = JSON.parse(ultimoAluno);
+    } else {
+      this.aluno = null;
+    }
+  }
 }

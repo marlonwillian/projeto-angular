@@ -1,5 +1,5 @@
 <section class="listaDeAlunos">
-  <h1>Lista de Alunos</h1>
+  <h1 (click)="retornaAlunos()">Lista de Alunos</h1>
   <div class="alunosDiv">
     <ul class="primeiraColuna">
       <li class="nome">Nome</li>
@@ -11,7 +11,7 @@
       <li class="acoes">Ações</li>
     </ul>
     <ul class="outrasColunas">
-      <li class="nomeAluno">Nome</li>
+      <li class="nomeAluno"> {{ aluno.name }} </li>
       <li class="emailAluno">E-mail</li>
       <li class="celularAluno">Celular</li>
       <li class="telefoneAluno">Telefone</li>
