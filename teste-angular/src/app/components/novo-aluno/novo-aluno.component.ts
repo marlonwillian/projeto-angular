@@ -31,8 +31,4 @@ export class NovoAlunoComponent implements OnInit {
     const infoAluno = JSON.stringify(this.form.value);
     localStorage.setItem(this.form.value.id, infoAluno)
   }
-
-  adicionarAluno() {
-    this.novoAluno()
-  }
 }

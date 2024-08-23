@@ -16,10 +16,7 @@ export class ListaDeAlunosComponent implements OnInit {
   
   retornaAlunos() {
     const ultimoAluno = localStorage.getItem(this.qtdChaves.toString())
-    if (ultimoAluno) {
-      this.aluno = JSON.parse(ultimoAluno);
-    } else {
-      this.aluno = null;
-    }
+    this.aluno = JSON.parse(ultimoAluno!);
+    console.log(this.aluno.name!)
   }
 }
