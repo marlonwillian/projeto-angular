@@ -5,12 +5,13 @@ import { SharedService } from 'src/app/shared.service';
 @Component({
   selector: 'app-novo-aluno',
   templateUrl: './novo-aluno.component.html',
-  styleUrls: ['./novo-aluno.component.css']
+  styleUrls: ['./novo-aluno.component.css'],
 })
 export class NovoAlunoComponent implements OnInit {
   form: FormGroup;
-  
-  constructor(private fb: FormBuilder, private sharedService: SharedService) { 
+  invalido: string = '';
+
+  constructor(private fb: FormBuilder, private sharedService: SharedService) {
     this.form = this.fb.group({
       id: [''],
       name: ['', Validators.required],
@@ -18,21 +19,18 @@ export class NovoAlunoComponent implements OnInit {
       telefone: [''],
       celular: [''],
       cpf: [''],
-      date: ['']
-    })
+      date: [''],
+    });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   novoAluno() {
     let id = localStorage.length;
-    this.form.value.id = id += 1; 
+    this.form.value.id = id += 1;
 
     const infoAluno = JSON.stringify(this.form.value);
     localStorage.setItem(this.form.value.id, infoAluno);
     this.sharedService.adicionar();
   }
-
-  
 }

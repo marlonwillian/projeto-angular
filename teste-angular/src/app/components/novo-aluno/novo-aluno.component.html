@@ -2,15 +2,15 @@
   <h1>Novo Aluno</h1>
   <form [formGroup]="form" (ngSubmit)="novoAluno()" >
     <div class="inputsCima">
-      <input type="text" formControlName="name" placeholder="Nome completo" required ngModel>
-      <input type="email" formControlName="email" placeholder="E-mail" required ngModel>
+      <input type="text" formControlName="name" placeholder="Nome completo" required>
+      <input type="email" formControlName="email" placeholder="E-mail" required>
     </div>
 
     <div class="inputsBaixo">
       <input type="tel" formControlName="telefone" placeholder="Telefone" ngModel mask="(00) 00000-0000">
       <input type="tel" formControlName="celular" placeholder="Celular" ngModel mask="(00) 00000-0000">
       <input type="text" formControlName="cpf" placeholder="CPF" ngModel mask="000.000.000-00"> 
-      <input type="date" formControlName="date" ngModel>
+      <input type="date" formControlName="date">
     </div>
 
     <div class="buttons">
@@ -20,6 +20,7 @@
       <button type="submit" class="botaoAdicionar">
         <i class="fa-solid fa-floppy-disk"></i> Adicionar
       </button>
+      <h1>{{ invalido }}</h1>
     </div>
   </form>
 </section>

@@ -10,29 +10,47 @@ export class ListaDeAlunosComponent implements OnInit {
   qtdChaves: number = localStorage.length
   aluno: any;
   alunos: any;
+  id: number = 0;
+  key: number = 0;
   
   constructor(private sharedService: SharedService) { }
   
   ngOnInit(): void {
+    
     this.sharedService.add$.subscribe(() => {
       this.retornaAlunos();
     });
-
+    
     this.alunos = this.sharedService.getItems();
     this.alunos = this.alunos.sort((a: any, b: any) => a.value.id - b.value.id)
+    
+    this.id = this.alunos.length - 1;
+    this.key = this.alunos[this.id].key;
+
+    if(this.verificaEmail(this.alunos[this.id].value.email)) {
+      console.log("Email ok");
+    } else {
+      console.log(this.key.toString())
+      localStorage.removeItem(this.key.toString());
+      window.location.reload()
+    }
   }
+
   
   retornaAlunos() {
     window.location.reload()
+  }
+  
+  verificaEmail(email: string): boolean {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
   }
 
   formataTC (value: string) {
     if (!value) return '';
 
-    // Remove caracteres não numéricos
     value = value.replace(/\D/g, '');
 
-    // Aplica a formatação
     if (value.length <= 2) {
       return value;
     } else if (value.length <= 5) {
