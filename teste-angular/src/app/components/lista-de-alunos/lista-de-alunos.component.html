@@ -1,7 +1,7 @@
 <section class="listaDeAlunos">
   <h1 (click)="retornaAlunos()">Lista de Alunos</h1>
   <div class="alunosDiv">
-    <ul class="primeiraColuna">
+    <ul class="primeiraColuna" *ngIf="alunos.length > 0; else elseUl">
       <li class="nome">Nome</li>
       <li class="email">E-mail</li>
       <li class="celular">Celular</li>
@@ -10,14 +10,17 @@
       <li class="dataDeNascimento">Data de Nascimento</li>
       <li class="acoes">Ações</li>
     </ul>
-    <ul class="outrasColunas">
-      <li class="nomeAluno"> {{ aluno.name }} </li>
-      <li class="emailAluno">E-mail</li>
-      <li class="celularAluno">Celular</li>
-      <li class="telefoneAluno">Telefone</li>
-      <li class="cpfAluno">CPF</li>
-      <li class="dataDeNascimentoAluno">Data de Nascimento</li>
-      <li class="acoesAluno">Ações</li>
+    <ul [ngClass]="aluno.value.id % 2 === 0 ? 'outrasColunas' : 'outrasColunas1'" *ngFor="let aluno of alunos">
+      <li class="nomeAluno">{{ aluno.value.name }}</li>
+      <li class="emailAluno">{{ aluno.value.email }}</li>
+      <li class="celularAluno">{{ formataTC(aluno.value.celular) }}</li>
+      <li class="telefoneAluno">{{ formataTC(aluno.value.telefone) }}</li>
+      <li class="cpfAluno">{{ formataCPF(aluno.value.cpf) }}</li>
+      <li class="dataDeNascimentoAluno">{{ formataData(aluno.value.date) }}</li>
+      <li class="acoesAluno"><i class="fa-solid fa-pen-to-square edit"></i> <i class="fa-solid fa-trash lixeira"></i></li>
     </ul>
+    <ng-template #elseUl>
+      <h1>Nenhum aluno foi adicionado</h1>
+    </ng-template>
   </div>
 </section>

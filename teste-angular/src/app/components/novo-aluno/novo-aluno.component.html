@@ -7,9 +7,9 @@
     </div>
 
     <div class="inputsBaixo">
-      <input type="tel" formControlName="telefone" placeholder="Telefone" ngModel>
-      <input type="tel" formControlName="celular" placeholder="Celular" ngModel>
-      <input type="number" formControlName="cpf" placeholder="CPF" ngModel>
+      <input type="tel" formControlName="telefone" placeholder="Telefone" ngModel mask="(00) 00000-0000">
+      <input type="tel" formControlName="celular" placeholder="Celular" ngModel mask="(00) 00000-0000">
+      <input type="text" formControlName="cpf" placeholder="CPF" ngModel mask="000.000.000-00"> 
       <input type="date" formControlName="date" ngModel>
     </div>
 

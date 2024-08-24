@@ -60,6 +60,15 @@ ul {
   padding: 5px;
   padding-right: 15px;
   color: black;
+  background-color: rgb(169, 179, 227);
+}
+
+.outrasColunas1 > li {
+  list-style-type: none;
+  padding: 5px;
+  padding-right: 15px;
+  color: black;
+  background-color: white;
 }
 
 .emailAluno, .celularAluno, .telefoneAluno, .cpfAluno, .dataDeNascimentoAluno, .acoesAluno {
@@ -88,4 +97,18 @@ ul {
 
 .acoesAluno {
   width: 65px;
+}
+
+.acoesAluno i {
+  margin-left: 15px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.edit {
+  color: #000000;
+}
+
+.lixeira {
+  color: #c83336;
 }

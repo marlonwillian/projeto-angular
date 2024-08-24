@@ -26,11 +26,13 @@ export class NovoAlunoComponent implements OnInit {
   }
 
   novoAluno() {
-    let id = localStorage.length
-    this.form.value.id = id += 1 
+    let id = localStorage.length;
+    this.form.value.id = id += 1; 
 
     const infoAluno = JSON.stringify(this.form.value);
-    localStorage.setItem(this.form.value.id, infoAluno)
+    localStorage.setItem(this.form.value.id, infoAluno);
     this.sharedService.adicionar();
   }
+
+  
 }
