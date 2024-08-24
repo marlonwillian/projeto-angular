@@ -3,7 +3,7 @@
   <form [formGroup]="form" (ngSubmit)="novoAluno()" >
     <div class="inputsCima">
       <input type="text" formControlName="name" placeholder="Nome completo" required>
-      <input type="email" formControlName="email" placeholder="E-mail" required>
+      <input type="email" formControlName="email" placeholder="E-mail (email@dominio.com)" required>
     </div>
 
     <div class="inputsBaixo">
@@ -14,7 +14,7 @@
     </div>
 
     <div class="buttons">
-      <button class="botaoCancelar">
+      <button class="botaoCancelar" (click)="cancelarCadastro()">
         <i class="fa-solid fa-ban"></i> Cancelar
       </button>
       <button type="submit" class="botaoAdicionar">

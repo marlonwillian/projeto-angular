@@ -10,6 +10,8 @@ import { SharedService } from 'src/app/shared.service';
 export class NovoAlunoComponent implements OnInit {
   form: FormGroup;
   invalido: string = '';
+  alunos: any;
+  editUser: any = 0;
 
   constructor(private fb: FormBuilder, private sharedService: SharedService) {
     this.form = this.fb.group({
@@ -23,14 +25,42 @@ export class NovoAlunoComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.alunos = this.sharedService.getItems()
+
+    this.sharedService.edit$.subscribe((id) => {
+      this.editar(id);
+    });
+  }
+
+  editar(id: any) {
+    this.editUser = localStorage.getItem(id);
+
+    if (this.editUser) {
+      this.form.patchValue(JSON.parse(this.editUser));
+    }
+  };
 
   novoAluno() {
     let id = localStorage.length;
     this.form.value.id = id += 1;
-
     const infoAluno = JSON.stringify(this.form.value);
-    localStorage.setItem(this.form.value.id, infoAluno);
-    this.sharedService.adicionar();
+
+    let userEdit = JSON.parse(this.editUser).id;
+
+    if(this.form.valid && this.editUser === 0) {
+      localStorage.setItem(this.form.value.id, infoAluno);
+      this.sharedService.adicionar();
+    } else if(!this.form.valid && this.editUser === 0) {
+      this.invalido = "O e-mail e nome são obrigatórios";
+    } else if (this.form.valid && this.editUser !== 0) {
+      console.log(userEdit.toString())
+      // localStorage.setItem(userEdit.toString(), JSON.stringify(infoAluno));
+      // this.sharedService.adicionar();
+    }
+  }
+
+  cancelarCadastro() {
+    this.form.reset()
   }
 }

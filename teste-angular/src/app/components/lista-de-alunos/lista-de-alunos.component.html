@@ -17,7 +17,10 @@
       <li class="telefoneAluno">{{ formataTC(aluno.value.telefone) }}</li>
       <li class="cpfAluno">{{ formataCPF(aluno.value.cpf) }}</li>
       <li class="dataDeNascimentoAluno">{{ formataData(aluno.value.date) }}</li>
-      <li class="acoesAluno"><i class="fa-solid fa-pen-to-square edit"></i> <i class="fa-solid fa-trash lixeira"></i></li>
+      <li class="acoesAluno">
+        <i class="fa-solid fa-pen-to-square edit" (click)="editar(aluno.value.id)"></i> 
+        <i class="fa-solid fa-trash lixeira" (click)="apagar(aluno.value.id)"></i>
+      </li>
     </ul>
     <ng-template #elseUl>
       <h1>Nenhum aluno foi adicionado</h1>

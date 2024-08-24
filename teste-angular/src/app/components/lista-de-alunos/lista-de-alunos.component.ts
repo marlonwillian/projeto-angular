@@ -10,35 +10,31 @@ export class ListaDeAlunosComponent implements OnInit {
   qtdChaves: number = localStorage.length
   aluno: any;
   alunos: any;
-  id: number = 0;
-  key: number = 0;
   
   constructor(private sharedService: SharedService) { }
   
   ngOnInit(): void {
-    
     this.sharedService.add$.subscribe(() => {
       this.retornaAlunos();
     });
     
     this.alunos = this.sharedService.getItems();
-    this.alunos = this.alunos.sort((a: any, b: any) => a.value.id - b.value.id)
-    
-    this.id = this.alunos.length - 1;
-    this.key = this.alunos[this.id].key;
+    this.alunos = this.alunos.sort((a: any, b: any) => a.value.id - b.value.id);
 
-    if(this.verificaEmail(this.alunos[this.id].value.email)) {
+    let id = this.alunos.length - 1;
+    let key = this.alunos[id].key;
+  
+    if(this.verificaEmail(this.alunos[id].value.email)) {
       console.log("Email ok");
     } else {
-      console.log(this.key.toString())
-      localStorage.removeItem(this.key.toString());
-      window.location.reload()
+      console.log(key.toString())
+      localStorage.removeItem(key.toString());
+      window.location.reload();
     }
   }
-
   
   retornaAlunos() {
-    window.location.reload()
+    window.location.reload();
   }
   
   verificaEmail(email: string): boolean {
@@ -83,5 +79,14 @@ export class ListaDeAlunosComponent implements OnInit {
     const [ano, mes, dia] = value.split('-');
 
     return `${dia}/${mes}/${ano}`;
+  }
+
+  editar(id: number) {
+    this.sharedService.editar(id);
+  }
+
+  apagar(id: number) {
+    localStorage.removeItem(id.toString());
+    window.location.reload();
   }
 }

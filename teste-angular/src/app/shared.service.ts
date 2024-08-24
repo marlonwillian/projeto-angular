@@ -8,8 +8,15 @@ export class SharedService {
   private addAluno = new Subject<void>();
   add$ = this.addAluno.asObservable();
 
+  private editarAluno = new Subject<void>();
+  edit$ = this.editarAluno.asObservable();
+
   adicionar() {
     this.addAluno.next();
+  }
+
+  editar(id: any) {
+    this.editarAluno.next(id);
   }
 
   getItems(): { key: string, value: string }[] {
