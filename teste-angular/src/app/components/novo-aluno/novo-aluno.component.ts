@@ -44,23 +44,25 @@ export class NovoAlunoComponent implements OnInit {
   novoAluno() {
     let id = localStorage.length;
     this.form.value.id = id += 1;
-    const infoAluno = JSON.stringify(this.form.value);
+    let infoAluno = this.form.value;
 
     let userEdit = JSON.parse(this.editUser).id;
 
     if(this.form.valid && this.editUser === 0) {
-      localStorage.setItem(this.form.value.id, infoAluno);
+      localStorage.setItem(this.form.value.id, JSON.stringify(infoAluno));
       this.sharedService.adicionar();
     } else if(!this.form.valid && this.editUser === 0) {
       this.invalido = "O e-mail e nome são obrigatórios";
     } else if (this.form.valid && this.editUser !== 0) {
-      console.log(userEdit.toString())
-      // localStorage.setItem(userEdit.toString(), JSON.stringify(infoAluno));
-      // this.sharedService.adicionar();
+      infoAluno.id = userEdit; 
+      localStorage.removeItem(userEdit.toString());
+      localStorage.setItem(userEdit.toString(), JSON.stringify(infoAluno));
+      this.sharedService.adicionar();
     }
   }
 
   cancelarCadastro() {
+    this.editUser = 0;
     this.form.reset()
   }
 }
